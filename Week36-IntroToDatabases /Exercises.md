@@ -55,7 +55,7 @@ On Windows, the easiest reliable options are:
 
 If `psql` is not found in PowerShell, either use **SQL Shell (psql)** or add the PostgreSQL `bin` folder to your PATH, for example:
 
-```
+``` 
 C:\Program Files\PostgreSQL\16\bin
 ```
 
@@ -204,22 +204,22 @@ Answer the following in your own words (write 2–3 sentences per point):
 
 > [!NOTE]
 > ***Your Answer***
->
-> _(Write your answer here.)_
+
+> _(Slow with 5000+ items. Typos, duplicates, formula errors. 10 staff can't edit safely at once.)
 
 2. List **3 benefits** of switching to a database system, explaining how each one solves a problem from your list above.
 
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(Fast search - fixes slowness.  Data rules - stop errors. Multi-user safe - flixes sharing issues. .)_
 
 3. Explain the three-schema architecture in your own words. Why is the separation into three levels useful?
 
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(External = user view; Conceptual = full structure; Internal = physical stroage.Separating them means changes don't break other parts -flexible  & easy to update.)_
 
 ---
 
@@ -235,7 +235,7 @@ _(See Section 1 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(Data =raw facts (eg.'Tent , 129.99'). Information = processed data with meaning .
 
 **Q2.** List and explain three disadvantages of file-based data management systems. For each, describe how it would affect TrailShop specifically.
 _(See Section 2 of this week's Theory material.)_
@@ -243,7 +243,7 @@ _(See Section 2 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(Redundancy - same data in many files - inconsistencies. No data independence _format change = rewrite all programs. Poor security - hard to control access for 10 staff .)_
 
 **Q3.** What is a DBMS? List four of its core functions.
 _(See Sections 3 and 4 of this week's Theory material.)_
@@ -251,7 +251,7 @@ _(See Sections 3 and 4 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(DBMS = software that manages databases .Function : Define structures , Manipulate data , Security /integrity,Concurrency /recovery.)_
 
 **Q4.** Explain program-data independence with a concrete example. Why is it important?
 _(See Section 5.2 of this week's Theory material.)_
@@ -259,7 +259,7 @@ _(See Section 5.2 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(Programs don't depend on storage -change structure without rewriting code. Example : add 'discount ' column without breaking the app. Important = save  time & work.)_
 
 **Q5.** What is metadata? Give two examples of metadata for a `products` table.
 _(See Section 8 of this week's Theory material.)_
@@ -267,7 +267,7 @@ _(See Section 8 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(Data about data  - describes structure. Example : column names /types ( VARCHAR , INT) ,table size ,indexes.)_
 
 **Q6.** What is the three-schema architecture? Name and briefly describe each level.
 _(See Section 3.3 of this week's Theory material.)_
@@ -275,7 +275,7 @@ _(See Section 3.3 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(External = user view; Conceptual = all data /relationship ; Internal = physical storage on disk.)_
 
 **Q7.** Explain the difference between logical data independence and physical data independence.
 _(See Section 3.4 of this week's Theory material.)_
@@ -283,7 +283,7 @@ _(See Section 3.4 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(Logical = change structure (add column) no program changes. Physical = change storage (file /index) no structure changes.)_
 
 **Q8.** What is a transaction? Why is atomicity important? Give a TrailShop example.
 _(See Section 5.5 of this week's Theory material.)_
@@ -291,7 +291,7 @@ _(See Section 5.5 of this week's Theory material.)_
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(Transcation = group of steps that all succeed or all fail. Atomicity =no half-finished.)_
 
 ### True/False
 
@@ -306,7 +306,11 @@ For each statement, write **True** or **False** and correct any false statements
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write True/False and corrections for all five statements above.)_
+> (False - A DBMS stores only data, not information about the data's structure
+> True -In a file-based system, changing the format of a data file requires updating every program that reads it.
+> False -DBMS reduces but doesn't always eliminate redundancy.
+> False - DBMS allows safe concurrent access.
+> False -Metadata describes data , not the data itself. )_
 
 ### Matching Exercise
 
@@ -343,16 +347,16 @@ Match each term (1–10) with its definition (A–J).
 >
 > | #   | Your Match |
 > | --- | ---------- |
-> | 1   |            |
-> | 2   |            |
-> | 3   |            |
-> | 4   |            |
-> | 5   |            |
-> | 6   |            |
-> | 7   |            |
-> | 8   |            |
-> | 9   |            |
-> | 10  |            |
+> | 1   |   F         |
+> | 2   |   H         |
+> | 3   |   B        |
+> | 4   |   A        |
+> | 5   |   C        |
+> | 6   |   G         |
+> | 7   |   D        |
+> | 8   |   E        |
+> | 9   |   I        |
+> | 10  |   J        |
 
 ---
 
@@ -378,7 +382,10 @@ Connect to PostgreSQL using psql and complete the following. Write down the comm
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Document the commands you used and summarize the output for each step.)_
+> _(List databases - '\1 ' - show postgres, trailshop,ect.
+>   Connect to trailshop - '\c trailshop - connected.
+>   List tables - '\dt' - no table yet (empty).
+>   table structure: '\d table'; Users : '\du'; Help: '\h command'
 
 ### Exercise 3.2: Explore the System Catalog
 
@@ -402,7 +409,9 @@ Why does the last query return no rows? What would you expect to see after creat
 > [!NOTE]
 > ***Your Answer***
 >
-> _(Write your answer here.)_
+> _(current databases () - trailshop
+>   version () _ PostgreSQL 17.x
+>   Information - schema. table  - no rows . Will show table names after we create them.)_
 
 ### Exercise 3.3: Create and Drop a Test Database
 
